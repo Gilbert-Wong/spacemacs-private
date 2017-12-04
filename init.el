@@ -33,6 +33,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ivy
+     helm
      auto-completion
      better-defaults
      emacs-lisp
