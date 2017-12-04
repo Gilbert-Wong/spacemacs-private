@@ -30,7 +30,10 @@
 ;;; Code:
 
 (defconst gilbert-packages
-  '(youdao-dictionary)
+  '(youdao-dictionary
+    company
+    occur-mode
+    )
   )
 
 (defun gilbert/init-youdao-dictionary()
@@ -41,4 +44,12 @@
     )
   )
 
+(defun gilbert/post-init-company()
+  (setq company-minimum-prefix-length 1))
+
+
+(defun gilbert/init-occur-mode()
+  (evilified-state-evilify-map occur-mode-map
+    :mode occur-mode)
+  )
 ;;; packages.el ends here

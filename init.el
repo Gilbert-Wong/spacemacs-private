@@ -318,8 +318,6 @@ you should place your code here."
   (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
   (setq powerline-default-separator 'arrow)
-  (evilified-state-evilify-map occur-mode-map
-    :mode -ccur-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
