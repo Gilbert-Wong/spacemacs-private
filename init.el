@@ -35,19 +35,16 @@ values."
      ivy
      helm
      auto-completion
-     better-defaults
+     (better-defaults :variable better-defaults-move-to-beginning-of-code-first t)
      emacs-lisp
      git
      markdown
      org
      osx
      php
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     ;; version-control
+     gilbert
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -321,6 +318,8 @@ you should place your code here."
   (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
   (setq powerline-default-separator 'arrow)
+  (evilified-state-evilify-map occur-mode-map
+    :mode -ccur-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
