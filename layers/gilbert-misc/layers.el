@@ -9,9 +9,6 @@
 ;;
 ;;; License: GPLv3
 
-(configuration-layer/declare-layers '(
-                                     gilbert-ui
-                                     gilbert-better-defaults
-                                     gilbert-misc
-                                     gilbert-programming
-                                     ))
+(configuration-layer/remove-layers '(
+                                     chinese
+                                     helm))
