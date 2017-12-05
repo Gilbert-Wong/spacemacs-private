@@ -1,4 +1,4 @@
-;;; config.el --- Better Emacs Defaults Layer configuration variables File
+;;; funcs.el --- Better Emacs Defaults Layer configuration variables File
 ;;
 ;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
 ;;

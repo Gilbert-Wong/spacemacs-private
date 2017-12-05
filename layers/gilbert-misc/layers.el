@@ -9,6 +9,5 @@
 ;;
 ;;; License: GPLv3
 
-(configuration-layer/remove-layers '(
-                                     chinese
+(configuration-layer/remove-layers '(chinese
                                      helm))
