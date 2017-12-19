@@ -27,6 +27,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -41,11 +42,10 @@ values."
      erlang
      git
      markdown
-     org
      html
      javascript
-     ;;osx
-     php
+     osx
+     org
      spell-checking
      syntax-checking
      gilbert
@@ -60,7 +60,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(vi-tilde-fringe auto-complete spacemacs-theme holy-mode google-translate flyspell-correct-helm helm helm-c-yasnippet helm-themes helm-swoop helm-spacemacs-help pangu-spacing)
+   dotspacemacs-excluded-packages '(org-projectile)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -135,6 +135,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Monaco"
+                               ;;"Source Code Pro"
                                :size 16
                                :weight normal
                                :width normal
