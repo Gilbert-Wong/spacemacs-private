@@ -38,6 +38,7 @@ values."
                       auto-completion-enable-snippets-in-popup t)
      better-defaults
      emacs-lisp
+     ruby
      python
      erlang
      git
