@@ -34,6 +34,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ivy
+     django
      ;;helm
      (auto-completion :variables auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup t)
@@ -43,6 +44,7 @@ values."
      python
      erlang
      git
+     imenu-list
      gtags
      markdown
      (markdown :variables markdown-live-preview-engine 'vmd)
