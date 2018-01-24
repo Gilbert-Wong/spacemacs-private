@@ -339,6 +339,14 @@ you should place your code here."
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
   (setq powerline-default-separator 'arrow)
   (setq ns-use-srgb-colorspace nil)
+
+  ;; UTF8!
+  (set-language-environment 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (setq locale-coding-system 'utf-8)
+  (set-default-coding-systems 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
