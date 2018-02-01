@@ -22,3 +22,10 @@
               (regexp-quote sym))))
         regexp-history)
   (call-interactively 'occur))
+
+(defun gilbert/cleanup-recentf ()
+  (progn
+    (and (fboundp 'recentf-cleanup)
+         (recentf-cleanup))))
+
+(add-hook 'kill-emacs-hook #'gilbert/cleanup-recentf)

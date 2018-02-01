@@ -27,30 +27,30 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ivy
-     django
-     ;;helm
+     osx
+     better-defaults
+     yaml
+     gtags
+     markdown
+     colors
+     docker
      (auto-completion :variables auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup t)
-     (better-defaults :variables better-defaults-move-to-end-of-code-first t)
      emacs-lisp
      ruby
      python
      erlang
      git
      imenu-list
-     gtags
-     markdown
      (markdown :variables markdown-live-preview-engine 'vmd)
      html
      javascript
-     osx
      org
      spell-checking
      syntax-checking
@@ -318,9 +318,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
   (setq configuration-layer--elpa-archives
-        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-          ("org-cn"   . "http://elpa.emacs-china.org/org/")
-          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+        '(("melpa-cn" . "https://elpa.emacs-china.org/melpa/")
+          ("org-cn"   . "https://elpa.emacs-china.org/org/")
+          ("gnu-cn"   . "https://elpa.emacs-china.org/gnu/")))
 
 
   (setq tramp-ssh-controlmaster-options
@@ -363,25 +363,25 @@ you should place your code here."
  '(package-selected-packages
    (quote
     (reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl youdao-dictionary
-names chinese-word-at-point unfill smeargle orgit org-projectile org-category-capture
-org-present org-pomodoro alert log4e gntp org-download mwim mmm-mode markdown-toc
-markdown-mode magit-gitflow htmlize gnuplot gitignore-mode gitconfig-mode gitattributes-mode
-git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-ivy flyspell-correct
-flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor
-company-statistics company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete
-ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package
-toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode
-pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text
-macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete
-hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt
-help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator
-fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode
-evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter
-evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange
-evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight
-elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile projectile pkg-info
-epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol
-auto-compile async aggressive-indent adaptive-wrap ace-window ace-link))))
+                          names chinese-word-at-point unfill smeargle orgit org-projectile org-category-capture
+                          org-present org-pomodoro alert log4e gntp org-download mwim mmm-mode markdown-toc
+                          markdown-mode magit-gitflow htmlize gnuplot gitignore-mode gitconfig-mode gitattributes-mode
+                          git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-ivy flyspell-correct
+                          flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor
+                          company-statistics company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete
+                          ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package
+                          toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode
+                          pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text
+                          macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete
+                          hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt
+                          help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator
+                          fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode
+                          evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter
+                          evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange
+                          evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight
+                          elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile projectile pkg-info
+                          epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol
+                          auto-compile async aggressive-indent adaptive-wrap ace-window ace-link))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
