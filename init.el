@@ -3,7 +3,7 @@
 You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
-   ;; Base distribution to use. This is a layer contained in the directory
+  ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
    dotspacemacs-distribution 'spacemacs
@@ -62,7 +62,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(sicp helm-gtags ag)
+   dotspacemacs-additional-packages '(sicp helm-gtags ag vue-mode)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.

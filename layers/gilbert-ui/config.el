@@ -10,6 +10,7 @@
 ;;; License: GPLv3
 
 (add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'vue-mode-hook 'linum-mode)
 
 ;; http://stackoverflow.com/questions/3875213/turning-on-linum-mode-when-in-python-c-mode
 (setq linum-mode-inhibit-modes-list '(eshell-mode
