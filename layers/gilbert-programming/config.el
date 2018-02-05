@@ -47,3 +47,6 @@
        (if (eq (car company-backends) ',backend)
            (setq-local company-backends (delete ',backend company-backends))
          (push ',backend company-backends)))))
+
+(setq js2-strict-missing-semi-warning nil)
+(setq js2-missing-semi-one-line-override t)
