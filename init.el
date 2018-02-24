@@ -51,7 +51,8 @@ values."
      (markdown :variables markdown-live-preview-engine 'vmd)
      html
      javascript
-     org
+     (org :variables
+          org-enable-bootstrap-support t)
      spell-checking
      syntax-checking
      gilbert
