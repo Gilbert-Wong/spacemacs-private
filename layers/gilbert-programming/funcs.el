@@ -52,3 +52,9 @@ version 2015-08-21"
             (message "Running…")
             (async-shell-command ξcmd-str "*gilbert/run-current-file output*"))
         (message "No recognized program file suffix for this file.")))))
+
+(defun gilbert/remove-semicolon-eol ()
+  "remove semicolons in javascript"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward ";" nil t) (replace-match "")))
