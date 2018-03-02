@@ -38,6 +38,7 @@ values."
      yaml
      gtags
      markdown
+     shell
      colors
      docker
      (auto-completion :variables auto-completion-enable-sort-by-usage t
