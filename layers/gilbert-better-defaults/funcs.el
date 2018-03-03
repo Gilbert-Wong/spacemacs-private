@@ -111,3 +111,116 @@ open and unsaved."
   "goto up directory and resue buffer"
   (interactive)
   (find-alternate-file ".."))
+
+(defun gilbert/open-in-external-app ()
+  "Open the current file or dired marked files in external app.
+The app is chosen from your OS's preference."
+  (interactive)
+  (let* (
+         ($file-list
+          (if (string-equal major-mode "dired-mode")
+              (dired-get-marked-files)
+            (list (buffer-file-name))))
+         ($do-it-p (if (<= (length $file-list) 5)
+                       t
+                     (y-or-n-p "Open more than 5 files? "))))
+    (when $do-it-p
+      (cond
+       ((string-equal system-type "windows-nt")
+        (mapc
+         (lambda ($fpath)
+           (w32-shell-execute "open" (replace-regexp-in-string "/" "\\" $fpath t t))) $file-list))
+       ((string-equal system-type "darwin")
+        (mapc
+         (lambda ($fpath)
+           (shell-command
+            (concat "open " (shell-quote-argument $fpath))))  $file-list))
+       ((string-equal system-type "gnu/linux")
+        (mapc
+         (lambda ($fpath) (let ((process-connection-type nil))
+                            (start-process "" nil "xdg-open" $fpath))) $file-list))))))
+
+(defun gilbert/show-in-desktop()
+  "Show current file in desktop.
+ (Mac Finder, Windows Explorer, Linux file manager)
+ This command can be called when in a file or in `dired'."
+  (interactive)
+  (let (($path (if (buffer-file-name) (buffer-file-name) default-directory )))
+    (cond
+     ((string-equal system-type "windows-nt")
+      (w32-shell-execute "explore" (replace-regexp-in-string "/" "\\" $path t t)))
+     ((string-equal system-type "darwin")
+      (if (eq major-mode 'dired-mode)
+          (let (($files (dired-get-marked-files )))
+            (if (eq (length $files) 0)
+                (shell-command
+                 (concat "open " (shell-quote-argument default-directory)))
+              (shell-command
+               (concat "open -R " (shell-quote-argument (car (dired-get-marked-files )))))))
+        (shell-command
+         (concat "open -R " $path))))
+     ((string-equal system-type "gnu/linux")
+      (let (
+            (process-connection-type nil)
+            (openFileProgram (if (file-exists-p "/usr/bin/gvfs-open")
+                                 "/usr/bin/gvfs-open"
+                               "/usr/bin/xdg-open")))
+        (start-process "" nil openFileProgram $path))
+      ;; (shell-command "xdg-open .") ;; 2013-02-10 this sometimes froze emacs till the folder is closed. eg with nautilus
+      ))))
+
+(defun gilbert/open-in-terminal()
+  "Open the current dir in a new terminal window."
+  (interactive)
+  (cond
+   ((string-equal system-type "windows-nt")
+    (message "Microsoft Windows not supported. File a bug report or pull request."))
+   ((string-equal system-type "darwin")
+    (let ((process-connection-type nil))
+      (start-process "" nil "/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal" default-directory)))
+   ((string-equal system-type "gnu/linux")
+    (let ((process-connection-type nil))
+      (start-process "" nil "x-terminal-emulator"
+                     (concat "--working-directory=" default-directory))))))
+
+
+(defun gilbert/open-in-textedit()
+  (interactive)
+  (let* (
+         ($file-list
+          (if (string-equal major-mode "dired-mode")
+              (dired-get-marked-files)
+            (list (buffer-file-name))))
+         ($do-it-p (if (<= (length $file-list) 5)
+                       t
+                     (y-or-n-p "Open more than 5 files? "))))
+    (when $do-it-p
+      (cond
+       ((string-equal system-type "darwin")
+        (mapc
+         (lambda ($fpath)
+           (shell-command
+            (format "open -a TextEdit.app \"%s\"" $fpath))) $file-list))))))
+
+
+(defun gilbert/open-in-firefox()
+  "Open the current file or `dired' marked files in Mac's Safari browser."
+  (interactive)
+  (let* (
+         ($file-list
+          (if (string-equal major-mode "dired-mode")
+              (dired-get-marked-files)
+            (list (buffer-file-name))))
+         ($do-it-p (if (<= (length $file-list) 5)
+                       t
+                     (y-or-n-p "Open more than 5 files? "))))
+    (when $do-it-p
+      (cond
+       ((string-equal system-type "darwin")
+        (mapc
+         (lambda ($fpath)
+           (when (buffer-modified-p )
+             (save-buffer))
+           (shell-command
+            (format "open -a Firefox.app \"%s\"" $fpath))) $file-list)))))
+  )
