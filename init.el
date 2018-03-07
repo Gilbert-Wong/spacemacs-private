@@ -33,6 +33,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ivy
+     ruby
      osx
      better-defaults
      yaml
@@ -41,12 +42,13 @@ values."
      shell
      colors
      docker
-     (auto-completion :variables auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-snippets-in-popup t)
-     emacs-lisp
-     ruby
-     python
+     ;; (auto-completion :variables auto-completion-enable-sort-by-usage t
+     ;;                  auto-completion-enable-snippets-in-popup t)
+     auto-completion
      erlang
+     emacs-lisp
+     ;; ruby
+     ;; python
      git
      imenu-list
      (markdown :variables markdown-live-preview-engine 'vmd)
@@ -56,9 +58,9 @@ values."
           org-enable-bootstrap-support t)
      spell-checking
      syntax-checking
-     gilbert
      (chinese :packages youdao-dictionary
               :variables chinese-enable-youdao-dict t)
+     gilbert
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -319,10 +321,10 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
-  (setq configuration-layer--elpa-archives
-        '(("melpa-cn" . "https://elpa.emacs-china.org/melpa/")
-          ("org-cn"   . "https://elpa.emacs-china.org/org/")
-          ("gnu-cn"   . "https://elpa.emacs-china.org/gnu/")))
+ ;; (setq configuration-layer--elpa-archives
+ ;;       '(("melpa-cn" . "https://elpa.emacs-china.org/melpa/")
+ ;;         ("org-cn"   . "https://elpa.emacs-china.org/org/")
+ ;;         ("gnu-cn"   . "https://elpa.emacs-china.org/gnu/")))
 
 
   (setq tramp-ssh-controlmaster-options
