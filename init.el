@@ -42,9 +42,8 @@ values."
      shell
      colors
      docker
-     ;; (auto-completion :variables auto-completion-enable-sort-by-usage t
-     ;;                  auto-completion-enable-snippets-in-popup t)
-     auto-completion
+     (auto-completion :variables auto-completion-enable-sort-by-usage t
+                       auto-completion-enable-snippets-in-popup t)
      erlang
      emacs-lisp
      ;; ruby
@@ -58,8 +57,6 @@ values."
           org-enable-bootstrap-support t)
      spell-checking
      syntax-checking
-     (chinese :packages youdao-dictionary
-              :variables chinese-enable-youdao-dict t)
      gilbert
      )
    ;; List of additional packages that will be installed without being

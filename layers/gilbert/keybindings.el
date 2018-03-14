@@ -11,7 +11,6 @@
 
 (global-set-key (kbd "M-s o") 'occur-dwim)
 
-(define-key global-map (kbd "C-c y") 'youdao-dictionary-search-at-point+)
 
 (define-key global-map (kbd "<f8>") 'gilbert/show-current-buffer-major-mode)
 

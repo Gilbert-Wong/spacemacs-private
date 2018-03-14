@@ -177,7 +177,7 @@ The app is chosen from your OS's preference."
     (message "Microsoft Windows not supported. File a bug report or pull request."))
    ((string-equal system-type "darwin")
     (let ((process-connection-type nil))
-      (start-process "" nil "/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal" default-directory)))
+      (start-process "" nil "/Applications/Utilities/iTerm.app/Contents/MacOS/iTerm2" default-directory)))
    ((string-equal system-type "gnu/linux")
     (let ((process-connection-type nil))
       (start-process "" nil "x-terminal-emulator"
