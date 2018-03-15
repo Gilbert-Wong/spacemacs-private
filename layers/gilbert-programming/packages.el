@@ -50,7 +50,7 @@
         ))
 
     :custom
-    (ivy-erlang-complete-erlang-root "/usr/local/Cellar/erlang/20.2.4/lib/erlang")
+    (ivy-erlang-complete-erlang-root "/usr/local/Cellar/erlang/")
     )
   )
 
