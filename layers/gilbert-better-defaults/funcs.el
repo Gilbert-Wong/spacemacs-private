@@ -177,7 +177,7 @@ The app is chosen from your OS's preference."
     (message "Microsoft Windows not supported. File a bug report or pull request."))
    ((string-equal system-type "darwin")
     (let ((process-connection-type nil))
-      (start-process "" nil "/Applications/Utilities/iTerm.app/Contents/MacOS/iTerm2" default-directory)))
+      (start-process "" nil "/Applications/iTerm.app/Contents/MacOS/iTerm2" default-directory)))
    ((string-equal system-type "gnu/linux")
     (let ((process-connection-type nil))
       (start-process "" nil "x-terminal-emulator"
@@ -203,8 +203,8 @@ The app is chosen from your OS's preference."
             (format "open -a TextEdit.app \"%s\"" $fpath))) $file-list))))))
 
 
-(defun gilbert/open-in-firefox()
-  "Open the current file or `dired' marked files in Mac's Safari browser."
+(defun gilbert/open-in-chrome()
+  "Open the current file or `dired' marked files in Mac's chrome browser."
   (interactive)
   (let* (
          ($file-list
@@ -222,7 +222,7 @@ The app is chosen from your OS's preference."
            (when (buffer-modified-p )
              (save-buffer))
            (shell-command
-            (format "open -a Firefox.app \"%s\"" $fpath))) $file-list)))))
+            (format "open -a Google\ Chrome.app \"%s\"" $fpath))) $file-list)))))
   )
 
 (defun gilbert/copy-file-path (&optional @dir-path-only-p)
