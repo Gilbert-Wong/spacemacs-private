@@ -23,14 +23,16 @@
   (use-package vue-mode
     :defer t
     :ensure t
+    :config
     (progn
-      (add-hook 'vue-mode-hook 'spacemacs/run-prog-mode-hooks))
+      (add-hook 'vue-mode-hook 'spacemacs/run-prog-mode-hooks)
+
+      ;; set vue mode keys
+      (spacemacs/set-leader-keys-for-major-mode 'vue-mode
+        "v" 'vue-mode-edit-indirect-at-point)
+      )
     )
   )
-
-(defun gilbert-programming/post-init-flycheck ()
-  (spacemacs/add-flycheck-hook 'vue-mode))
-
 
 ;; enhance erlang-mode
 (defun gilbert-programming/init-ivy-erlang-complete()
@@ -51,8 +53,8 @@
       ;; (dolist (prefix '(
       ;;                   ("e" . "erlang-ide")
       ;;                   ))
-        ;; (spacemacs/declare-prefix-for-mode
-        ;;   'erlang-mode (car prefix) (cdr prefix)))
+      ;; (spacemacs/declare-prefix-for-mode
+      ;;   'erlang-mode (car prefix) (cdr prefix)))
 
       (spacemacs/set-leader-keys-for-major-mode 'erlang-mode
         "d" 'ivy-erlang-complete-find-definition
