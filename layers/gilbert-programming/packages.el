@@ -14,7 +14,22 @@
         paredit
         ivy-erlang-complete
         company-erlang
+        vue-mode
         ))
+
+;; vue-mode
+(defun gilbert-programming/init-vue-mode()
+  "Setup for VueJs"
+  (use-package vue-mode
+    :defer t
+    :ensure t
+    (progn
+      (add-hook 'vue-mode-hook 'spacemacs/run-prog-mode-hooks))
+    )
+  )
+
+(defun gilbert-programming/post-init-flycheck ()
+  (spacemacs/add-flycheck-hook 'vue-mode))
 
 
 ;; enhance erlang-mode
