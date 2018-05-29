@@ -321,6 +321,9 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
+  (add-to-list 'default-frame-alist
+               '(ns-appearance . dark)) ;; or light - depending on your theme
+
  ;; (setq configuration-layer--elpa-archives
  ;;       '(("melpa-cn" . "https://elpa.emacs-china.org/melpa/")
  ;;         ("org-cn"   . "https://elpa.emacs-china.org/org/")
