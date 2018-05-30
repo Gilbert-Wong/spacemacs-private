@@ -40,7 +40,7 @@ values."
      gtags
      markdown
      shell
-     colors
+     (colors :variables colors-enable-nyan-cat-progress-bar t)
      docker
      (auto-completion :variables auto-completion-enable-sort-by-usage t
                        auto-completion-enable-snippets-in-popup t)
@@ -341,6 +341,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
   (global-hungry-delete-mode t)
   (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
