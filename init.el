@@ -345,8 +345,8 @@ you should place your code here."
   (global-hungry-delete-mode t)
   (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
-  (setq powerline-default-separator 'arrow)
-  (setq ns-use-srgb-colorspace nil)
+  ;; (setq powerline-default-separator 'arrow)
+  ;; (setq ns-use-srgb-colorspace nil)
 
   ;; UTF8!
   (set-language-environment 'utf-8)
