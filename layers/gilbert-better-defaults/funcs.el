@@ -25,6 +25,10 @@
     )
   )
 
+(defun gilbert/insert-time-string()
+  (interactive)
+  (insert (format-time-string "%Y-%M-%d %H:%M:%S")))
+
 (defun indent-buffer()
   (interactive)
   (indent-region (point-min) (point-max)))

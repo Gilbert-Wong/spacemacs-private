@@ -1,6 +1,6 @@
 ;;; packages.el --- Better Emacs Defaults Layer configuration variables File
 ;;
-;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
+;; Copyright (c) 2017-2018 Gilbert Wong
 ;;
 ;; Author: Gilbert <gilbertwong96@outlook.com>
 ;; URL: https://github.com/Gilbert-Wong/spacemacs-private

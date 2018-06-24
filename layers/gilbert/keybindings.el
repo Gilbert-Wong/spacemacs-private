@@ -13,6 +13,8 @@
 
 (define-key global-map (kbd "C-c y") 'youdao-dictionary-search-at-point+)
 
+(define-key global-map (kbd "C-c t") 'gilbert/insert-time-string)
+
 (define-key global-map (kbd "<f8>") 'gilbert/show-current-buffer-major-mode)
 
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
