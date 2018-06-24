@@ -26,7 +26,7 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(d
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -46,8 +46,8 @@ values."
                        auto-completion-enable-snippets-in-popup t)
      erlang
      emacs-lisp
-     ;; ruby
-     ;; python
+     ruby
+     python
      git
      imenu-list
      (markdown :variables markdown-live-preview-engine 'vmd)
@@ -321,9 +321,6 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
-  (add-to-list 'default-frame-alist
-               '(ns-appearance . dark)) ;; or light - depending on your theme
-
  ;; (setq configuration-layer--elpa-archives
  ;;       '(("melpa-cn" . "https://elpa.emacs-china.org/melpa/")
  ;;         ("org-cn"   . "https://elpa.emacs-china.org/org/")
@@ -342,6 +339,8 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  (setq make-backup-files nil)
+  (setq auto-save-default nil)
   (global-hungry-delete-mode t)
   (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
