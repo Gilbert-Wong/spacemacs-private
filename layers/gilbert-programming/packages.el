@@ -12,7 +12,8 @@
 (setq gilbert-programming-packages
       '(
         paredit
-        ivy-erlang-complete
+        ;; ivy-erlang-complete
+        (ivy-erlang-complete :location (recipe :fetcher github :repo "Gilbert-Wong/ivy-erlang-complete"))
         company-erlang
         vue-mode
         ))
