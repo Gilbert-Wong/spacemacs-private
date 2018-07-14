@@ -64,7 +64,8 @@
         "h" 'ivy-erlang-complete-show-doc-at-point
         "p" 'ivy-erlang-complete-set-project-root
         "a" 'ivy-erlang-complete-autosetup-project-root
-        ))
+        )
+      (setq flycheck-erlang-include-path '("../include")))
 
     :custom
     (ivy-erlang-complete-erlang-root "/usr/local/Cellar/erlang/")
