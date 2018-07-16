@@ -12,8 +12,8 @@
 (setq gilbert-programming-packages
       '(
         paredit
-        ;; ivy-erlang-complete
-        (ivy-erlang-complete :location (recipe :fetcher github :repo "Gilbert-Wong/ivy-erlang-complete"))
+        ivy-erlang-complete
+        ;; (ivy-erlang-complete :location (recipe :fetcher github :repo "Gilbert-Wong/ivy-erlang-complete"))
         company-erlang
         vue-mode
         ))
@@ -69,7 +69,7 @@
       (setq flycheck-erlang-include-path '("../include")))
 
     :custom
-    (ivy-erlang-complete-erlang-root "/usr/local/Cellar/erlang/")
+    (ivy-erlang-complete-erlang-root "/usr/local/Cellar/erlang@20/")
     )
   )
 
