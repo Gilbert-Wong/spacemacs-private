@@ -346,7 +346,10 @@ you should place your code here."
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
   ;; (setq powerline-default-separator 'arrow)
   ;; (setq ns-use-srgb-colorspace nil)
-
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+  ;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  ;; (add-to-list 'default-frame-alist '(ns-appearance . light))
   ;; UTF8!
   (set-language-environment 'utf-8)
   (set-terminal-coding-system 'utf-8)
