@@ -51,12 +51,6 @@
       (add-to-list 'auto-mode-alist '("relx\\.config$" . erlang-mode))
       (add-to-list 'auto-mode-alist '("system\\.config$" . erlang-mode))
       (add-to-list 'auto-mode-alist '("\\.app\\.src$" . erlang-mode))
-      ;; (dolist (prefix '(
-      ;;                   ("e" . "erlang-ide")
-      ;;                   ))
-      ;; (spacemacs/declare-prefix-for-mode
-      ;;   'erlang-mode (car prefix) (cdr prefix)))
-
       (spacemacs/set-leader-keys-for-major-mode 'erlang-mode
         "d" 'ivy-erlang-complete-find-definition
         "s" 'ivy-erlang-complete-find-spec
@@ -66,12 +60,18 @@
         "p" 'ivy-erlang-complete-set-project-root
         "a" 'ivy-erlang-complete-autosetup-project-root
         )
-      (setq flycheck-erlang-include-path '("../include")))
+      ;; (add-hook 'erlang-mode-hook
+      ;;           (lambda () (add-to-list 'flycheck-erlang-library-path
+      ;;                                   (expand-file-name "../build/default/lib/esockd/include"))
+      ;;                                   ))
+      )
 
     :custom
-    (ivy-erlang-complete-erlang-root "/usr/local/Cellar/erlang@20/")
+    (ivy-erlang-complete-erlang-root "/usr/local/Cellar/erlang/")
     )
   )
+
+
 
 (defun gilbert-programming/init-company-erlang()
   (add-hook 'erlang-mode-hook #'company-erlang-init)
