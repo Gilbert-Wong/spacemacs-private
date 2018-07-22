@@ -32,24 +32,24 @@
 
 (defun gilbert/word-count-for-chinese ()
 
-  "「較精確地」統計中/日/英文字數。
-- 文章中的註解不算在字數內。
-- 平假名與片假名亦包含在「中日文字數」內，每個平/片假名都算單獨一個字（但片假
-  名不含連音「ー」）。
-- 英文只計算「單字數」，不含標點。
-- 韓文不包含在內。
-※計算標準太多種了，例如英文標點是否算入、以及可能有不太常用的標點符號沒算入等
-。且中日文標點的計算標準要看 Emacs 如何定義特殊標點符號如ヴァランタン・アルカン
-中間的點也被 Emacs 算為一個字而不是標點符號。"
+  "「较准确地」统计中/日/英文字数。
+- 文章中的注解不算在字数内。
+- 平假名与片假名亦包含在「中日文字数」內，每个平/片假名都算单独一个字（但片假
+  名不含连音「ー」）。
+- 英文只计算「单字数」，不含标点。
+- 韩文不包含在內。
+※计算标准太多种了，例如英文标点是否算入、以及可能有不太常用的标点符号没算入等
+。且中日文标点的计算标准要看 Emacs 如何定义特殊标点符号如ヴァランタン・アルカン
+中间的点也被 Emacs 算为一个字而不是标点符号。"
   (interactive)
   (let* ((v-buffer-string
           (progn
-            (if (eq major-mode 'org-mode) ; 去掉 org 文件的 OPTIONS（以#+開頭）
+            (if (eq major-mode 'org-mode) ; 去掉 org 文件的 OPTIONS（以#+开头）
                 (setq v-buffer-string (replace-regexp-in-string "^#\\+.+" ""
                                                                 (buffer-substring-no-properties (point-min) (point-max))))
               (setq v-buffer-string (buffer-substring-no-properties (point-min) (point-max))))
             (replace-regexp-in-string (format "^ *%s *.+" comment-start) "" v-buffer-string)))
-                                        ; 把註解行刪掉（不把註解算進字數）。
+                                        ; 把注解行刪掉（不把注解算进字数）。
          (chinese-char-and-punc 0)
          (chinese-punc 0)
          (english-word 0)
@@ -57,27 +57,26 @@
     (with-temp-buffer
       (insert v-buffer-string)
       (goto-char (point-min))
-      ;; 中文（含標點、片假名）
+      ;; 中文（含标点、片假名）
       (while (re-search-forward wc-regexp-chinese-char-and-punc nil :no-error)
         (setq chinese-char-and-punc (1+ chinese-char-and-punc)))
-      ;; 中文標點符號
+      ;; 中文标点符号
       (goto-char (point-min))
       (while (re-search-forward wc-regexp-chinese-punc nil :no-error)
         (setq chinese-punc (1+ chinese-punc)))
-      ;; 英文字數（不含標點）
+      ;; 英文字数（不含标点）
       (goto-char (point-min))
       (while (re-search-forward wc-regexp-english-word nil :no-error)
         (setq english-word (1+ english-word))))
     (setq chinese-char (- chinese-char-and-punc chinese-punc))
     (message
-     (format "中日文字數（不含標點）：%s
-中日文字數（包含標點）：%s
-英文字數（不含標點）：%s
+     (format "中日文字数（不含标点）：%s
+中日文字数（包含标点）：%s
+英文字数（不含标点）：%s
 =======================
-中英文合計（不含標點）：%s"
+中英文合计（不含标点）：%s"
              chinese-char chinese-char-and-punc english-word
              (+ chinese-char english-word)))))
-
 
 (defun gilbert/show-current-buffer-major-mode ()
   (interactive)

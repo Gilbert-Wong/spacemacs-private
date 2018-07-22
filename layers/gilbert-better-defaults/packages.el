@@ -9,8 +9,6 @@
 ;;
 ;;; License: GPLv3
 
-
-
 (defconst gilbert-better-defaults-packages
   '(
     (dired-mode :location built-in)
