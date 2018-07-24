@@ -60,18 +60,27 @@
         "p" 'ivy-erlang-complete-set-project-root
         "a" 'ivy-erlang-complete-autosetup-project-root
         )
-      ;; (add-hook 'erlang-mode-hook
-      ;;           (lambda () (add-to-list 'flycheck-erlang-library-path
-      ;;                                   (expand-file-name "../build/default/lib/esockd/include"))
-      ;;                                   ))
+      (setq flycheck-display-errors-function nil
+            flycheck-erlang-include-path '("../include")
+            flycheck-erlang-library-path '()
+            flycheck-check-syntax-automatically '(save))
       )
 
     :custom
-    (ivy-erlang-complete-erlang-root "/usr/local/Cellar/erlang/")
+    (ivy-erlang-complete-erlang-root "~/.asdf/installs/erlang/21.0.3/")
     )
   )
 
-
+;; (defun gilbert-programming/post-init-flycheck()
+;;   (use-package flycheck
+;;     ;; :diminish flycheck-mode
+;;     :config
+;;     (add-hook 'after-init-hook 'global-flycheck-mode)
+;;     (setq flycheck-display-errors-function nil
+;;           flycheck-erlang-include-path '("../include")
+;;           flycheck-erlang-library-path '()
+;;           flycheck-check-syntax-automatically '(save)))
+;;   )
 
 (defun gilbert-programming/init-company-erlang()
   (add-hook 'erlang-mode-hook #'company-erlang-init)
