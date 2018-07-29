@@ -9,6 +9,7 @@
 ;;
 ;;; License: GPLv3
 
+
 (defconst gilbert-better-defaults-packages
   '(
     (dired-mode :location built-in)
@@ -16,6 +17,7 @@
     (recentf :location built-in)
     )
 )
+
 
 (defun gilbert-better-defaults/post-init-recentf ()
   (progn

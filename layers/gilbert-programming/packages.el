@@ -60,7 +60,8 @@
         "p" 'ivy-erlang-complete-set-project-root
         "a" 'ivy-erlang-complete-autosetup-project-root
         )
-      (setq flycheck-display-errors-function nil
+      (setq
+       ;;   flycheck-display-errors-function nil
             flycheck-erlang-include-path '("../include")
             flycheck-erlang-library-path '()
             flycheck-check-syntax-automatically '(save))

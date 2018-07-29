@@ -1,3 +1,6 @@
+;; -*- mode: emacs-lisp -*-
+;; This file is loaded by Spacemacs at startup.
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -33,7 +36,6 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ivy
-     ruby
      osx
      better-defaults
      yaml
@@ -45,8 +47,8 @@ values."
      (auto-completion :variables auto-completion-enable-sort-by-usage t
                        auto-completion-enable-snippets-in-popup t)
      erlang
+     elixir
      emacs-lisp
-     ruby
      python
      git
      imenu-list
@@ -63,7 +65,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(sicp helm-gtags ag youdao-dictionary)
+   dotspacemacs-additional-packages '(sicp helm-gtags ag youdao-dictionary super-save)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -141,8 +143,9 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
-                         solarized-light
                          spacemacs-dark
+                         spacemacs-light
+                         solarized-light
                          monokai
                          solarized-dark)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -327,8 +330,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
  ;;         ("gnu-cn"   . "https://elpa.emacs-china.org/gnu/")))
 
 
-  (setq tramp-ssh-controlmaster-options
-        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+  ;; (setq tramp-ssh-controlmaster-options
+  ;;       "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   )
 
 (defun dotspacemacs/user-config ()
@@ -339,11 +342,13 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  (super-save-mode +1)
+  (setq-default super-save-auto-save-when-idle t)
   (setq make-backup-files nil)
   (setq auto-save-default nil)
   (global-hungry-delete-mode t)
-  (setcdr evil-insert-state-map nil)
-  (define-key evil-insert-state-map [escape] 'evil-normal-state)
+  ;; (setcdr evil-insert-state-map nil)
+  ;; (define-key evil-insert-state-map [escape] 'evil-normal-state)
   ;; (setq powerline-default-separator 'arrow)
   ;; (setq ns-use-srgb-colorspace nil)
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
