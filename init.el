@@ -38,12 +38,13 @@ values."
      ivy
      osx
      better-defaults
+     github
      yaml
      gtags
      markdown
      shell
      (colors :variables colors-enable-nyan-cat-progress-bar t)
-     docker
+     ;; docker
      (auto-completion :variables auto-completion-enable-sort-by-usage t
                        auto-completion-enable-snippets-in-popup t)
      erlang
@@ -347,8 +348,8 @@ you should place your code here."
   (setq make-backup-files nil)
   (setq auto-save-default nil)
   (global-hungry-delete-mode t)
-  ;; (setcdr evil-insert-state-map nil)
-  ;; (define-key evil-insert-state-map [escape] 'evil-normal-state)
+  (setcdr evil-insert-state-map nil)
+  (define-key evil-insert-state-map [escape] 'evil-normal-state)
   ;; (setq powerline-default-separator 'arrow)
   ;; (setq ns-use-srgb-colorspace nil)
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))

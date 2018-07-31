@@ -18,7 +18,6 @@
         ;; smartparens
         flyspell-correct
         peep-dired
-        gist
         hydra
         golden-ratio
         (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
@@ -416,41 +415,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     ;; (bind-key*  "<f4>" 'hydra-apropos/body)
     (spacemacs/set-leader-keys "oh" 'hydra-apropos/body)
 
-    ))
-
-(defun gilbert-misc/post-init-gist ()
-  (use-package gist
-    :defer t
-    :init
-    (setq gist-list-format
-          '((files "File" 30 nil "%s")
-            (id "Id" 10 nil identity)
-            (created "Created" 20 nil "%D %R")
-            (visibility "Visibility" 10 nil
-                        (lambda
-                          (public)
-                          (or
-                           (and public "public")
-                           "private")))
-            (description "Description" 0 nil identity)))
-    :config
-    (progn
-      (spacemacs|define-transient-state gist-list-mode
-        :title "Gist-mode Transient State"
-        :bindings
-        ("k" gist-kill-current "delete gist")
-        ("e" gist-edit-current-description "edit gist title")
-        ("+" gist-add-buffer "add a file")
-        ("-" gist-remove-file "delete a file")
-        ("y" gist-print-current-url "print url")
-        ("b" gist-browse-current-url "browse gist in browser")
-        ("*" gist-star "star gist")
-        ("^" gist-unstar "unstar gist")
-        ("f" gist-fork "fork gist")
-        ("q" nil "quit" :exit t)
-        ("<escape>" nil nil :exit t))
-      (spacemacs/set-leader-keys-for-major-mode 'gist-list-mode
-        "." 'spacemacs/gist-list-mode-transient-state/body))
     ))
 
 (defun gilbert-misc/init-peep-dired ()
