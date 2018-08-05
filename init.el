@@ -37,6 +37,7 @@ values."
      ;; ----------------------------------------------------------------
      ivy
      osx
+     emoji
      better-defaults
      github
      yaml
